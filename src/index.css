@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+/*
+ * Lumé design tokens (Tailwind v4 — CSS-first configuration).
+ * Every token below becomes a utility automatically, e.g.
+ *   --color-espresso   -> bg-espresso / text-espresso / border-espresso
+ *   --font-serif       -> font-serif
+ *   --text-display     -> text-display
+ *   --spacing-section  -> py-section / mt-section
+ *   --container-page   -> max-w-page
+ *   --ease-luxe        -> ease-luxe
+ */
+@theme {
+  /* Palette: warm ivory, soft beige, espresso brown, champagne gold */
+  --color-ivory: #fbf7f0;
+  --color-cream: #f5eee2;
+  --color-beige: #e8dcc8;
+  --color-sand: #d5c4a8;
+  --color-taupe: #6f5e50;
+  --color-espresso: #2a1b14;
+  --color-espresso-soft: #3b281e;
+  --color-champagne: #c5a572;
+  --color-champagne-deep: #8a6a33;
+  --color-champagne-light: #e6d5ae;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-display: clamp(3rem, 7vw, 6rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-headline: clamp(2.25rem, 4.5vw, 3.75rem);
+  --text-headline--line-height: 1.1;
+  --text-headline--letter-spacing: -0.015em;
+
+  --text-title: clamp(1.5rem, 2.2vw, 2rem);
+  --text-title--line-height: 1.25;
+
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1rem;
+  --text-eyebrow--letter-spacing: 0.28em;
+
+  /* Spacing & layout */
+  --spacing-section: clamp(4.5rem, 9vw, 8rem);
+  --spacing-gutter: clamp(1.5rem, 4vw, 3rem);
+  --container-page: 78rem;
+  --container-prose: 40rem;
+
+  /* Motion */
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Elevation */
+  --shadow-soft: 0 18px 50px -24px rgb(42 27 20 / 0.28);
+  --shadow-lift: 0 30px 70px -30px rgb(42 27 20 / 0.38);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-espresso);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    color: var(--color-espresso);
+  }
+
+  ::selection {
+    background-color: var(--color-champagne-light);
+    color: var(--color-espresso);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-champagne-deep);
+    outline-offset: 3px;
+  }
+}
