@@ -7,6 +7,10 @@ interface SectionHeadingProps {
   title: string
   description?: string
   align?: 'left' | 'center'
+  /** "light" renders ivory text for use on espresso backgrounds. */
+  tone?: 'dark' | 'light'
+  /** Applied to the <h2>, so a parent <section> can reference it. */
+  headingId?: string
   className?: string
 }
 
@@ -16,8 +20,12 @@ export default function SectionHeading({
   title,
   description,
   align = 'left',
+  tone = 'dark',
+  headingId,
   className,
 }: SectionHeadingProps) {
+  const isLight = tone === 'light'
+
   return (
     <motion.div
       className={cn(
@@ -33,19 +41,29 @@ export default function SectionHeading({
       {eyebrow && (
         <motion.p
           variants={fadeUp}
-          className="text-eyebrow font-medium uppercase text-champagne-deep"
+          className={cn(
+            'text-eyebrow font-medium uppercase',
+            isLight ? 'text-champagne' : 'text-champagne-deep',
+          )}
         >
           {eyebrow}
         </motion.p>
       )}
       <motion.h2
+        id={headingId}
         variants={fadeUp}
-        className="mt-4 font-serif text-headline text-espresso"
+        className={cn(
+          'mt-4 font-serif text-headline',
+          isLight ? 'text-ivory' : 'text-espresso',
+        )}
       >
         {title}
       </motion.h2>
       {description && (
-        <motion.p variants={fadeUp} className="mt-6 text-taupe">
+        <motion.p
+          variants={fadeUp}
+          className={cn('mt-6', isLight ? 'text-ivory/70' : 'text-taupe')}
+        >
           {description}
         </motion.p>
       )}
