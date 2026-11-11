@@ -24,4 +24,21 @@ WebP or a different size, update the matching entry in `src/config/images.ts`.
 | `gallery-6.jpg`    | 1250 × 1000      | Gallery preview                      |
 | `booking.jpg`      | 2400 × 1200      | Final booking section background     |
 
+## About page
+
+The About page reuses the photographs above — no additional files are needed. Its
+alt text and placeholder labels live in `src/config/about.ts` (`aboutImages`), so if
+you replace one of these files with a different subject, update the matching entry.
+
+| File             | Used on the About page                                   | Shown as           |
+| ---------------- | -------------------------------------------------------- | ------------------ |
+| `gallery-4.jpg`  | Hero: natural beauty portrait (portrait photo, 4:5 crop) | Large portrait     |
+| `about.jpg`      | Our story: stylist consulting a guest                    | Portrait, 4:5      |
+| `experience.jpg` | The Lumé experience: wide salon interior                 | Landscape, 3:2     |
+| `gallery-3.jpg`  | The Lumé experience: interior detail                     | Small inset, 3:4   |
+| `booking.jpg`    | Final booking section background                         | Full-width, dimmed |
+
+For the sharpest result on large screens, `experience.jpg` works best at 2100 × 1400
+or larger (the wide image is shown in landscape at about 3:2).
+
 Use only photographs you own or are licensed to use.
