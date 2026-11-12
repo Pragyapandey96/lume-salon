@@ -9,10 +9,17 @@ export const siteConfig: SiteConfig = {
   tagline: 'Salon & Spa',
   description:
     'An unhurried sanctuary for hair, skin and restoration — where every detail is considered and every visit feels personal.',
+  // Set to false once every detail below has been replaced with real business information.
+  detailsAreSample: true,
   contact: {
     phone: '+00 00000 00000',
     phoneHref: 'tel:+0000000000',
     email: 'hello@lume.example',
+  },
+  whatsapp: {
+    number: '+00 00000 00000',
+    // Placeholder number: replace the digits after wa.me/ with the real one (country code, no "+").
+    href: 'https://wa.me/0000000000?text=Hello%20Lum%C3%A9%2C%20I%27d%20like%20to%20ask%20about%20an%20appointment.',
   },
   address: ['00 Placeholder Street', 'Your City, State 000000'],
   hours: [

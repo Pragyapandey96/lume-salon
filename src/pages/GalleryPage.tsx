@@ -1,16 +1,18 @@
+import GalleryBooking from '@/components/gallery/GalleryBooking'
+import GalleryBrowser from '@/components/gallery/GalleryBrowser'
+import GalleryHero from '@/components/gallery/GalleryHero'
+import GalleryIntro from '@/components/gallery/GalleryIntro'
 import PageTransition from '@/components/layout/PageTransition'
-import PageHeader from '@/components/ui/PageHeader'
-import PlaceholderNotice from '@/components/ui/PlaceholderNotice'
+import { siteConfig } from '@/config/site'
 
 export default function GalleryPage() {
   return (
     <PageTransition>
-      <PageHeader
-        eyebrow="Portfolio"
-        title="Gallery"
-        description="A look inside the space and the work we are proud of."
-      />
-      <PlaceholderNotice />
+      <title>{`Gallery · ${siteConfig.name} ${siteConfig.tagline}`}</title>
+      <GalleryHero />
+      <GalleryIntro />
+      <GalleryBrowser />
+      <GalleryBooking />
     </PageTransition>
   )
 }

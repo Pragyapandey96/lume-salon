@@ -41,4 +41,55 @@ you replace one of these files with a different subject, update the matching ent
 For the sharpest result on large screens, `experience.jpg` works best at 2100 × 1400
 or larger (the wide image is shown in landscape at about 3:2).
 
+## Gallery page
+
+The Gallery page needs **no new image files**. Each of the 11 photographs below is
+used once, and the hero reuses `booking.jpg`. All entries live in
+`src/config/gallery.ts` (`galleryItems`), where each photograph has its own
+`width`, `height`, alt text, category and tile proportion.
+
+| File                 | Category | Shown as                          |
+| -------------------- | -------- | --------------------------------- |
+| `service-hair.jpg`   | Hair     | Tall tile, 5:8                    |
+| `gallery-3.jpg`      | Hair     | Tile, 4:5                         |
+| `about.jpg`          | Hair     | Landscape tile, 4:3               |
+| `gallery-6.jpg`      | Hair     | Tile, 2:3 (see note below)        |
+| `hero-inset.jpg`     | Hair     | Tile, 4:5                         |
+| `service-skin.jpg`   | Skin     | Tall tile, 2:3                    |
+| `service-spa.jpg`    | Spa      | Tile, 4:5                         |
+| `gallery-1.jpg`      | Spa      | Square tile                       |
+| `gallery-5.jpg`      | Spa      | Tile, 4:5                         |
+| `gallery-4.jpg`      | Bridal   | Tile, 4:5                         |
+| `service-bridal.jpg` | Bridal   | Tall tile, 2:3                    |
+| `booking.jpg`        | (hero)   | Large hero photograph, 5:4        |
+
+Notes:
+
+- `gallery-6.jpg` is only 236 × 354, so it looks soft at full size. The viewer
+  never enlarges a photograph beyond twice its real width, but a replacement is
+  recommended.
+- `service-bridal.jpg` carries a third-party watermark in its top-right corner.
+- The **Skin** filter currently has a single photograph and **Bridal** has two.
+
+### Optional additions
+
+To give the Skin, Spa and Bridal filters more depth, add files like these to
+`public/images/`, then add one entry per file to `galleryItems` in
+`src/config/gallery.ts` (copy an existing entry and change `id`, `category`,
+`caption`, `aspect` and the `photo(...)` call). The tiles and viewer pick them up
+automatically.
+
+| Suggested filename      | Category | Recommended size |
+| ----------------------- | -------- | ---------------- |
+| `gallery-skin-1.jpg`    | Skin     | 1000 × 1250      |
+| `gallery-skin-2.jpg`    | Skin     | 1000 × 1250      |
+| `gallery-spa-1.jpg`     | Spa      | 1000 × 1250      |
+| `gallery-bridal-1.jpg`  | Bridal   | 1000 × 1500      |
+| `gallery-bridal-2.jpg`  | Bridal   | 1000 × 1250      |
+| `gallery-hair-1.jpg`    | Hair     | 1000 × 1250      |
+
+Because `galleryItems` builds on the shared `images` entries, a new file also needs
+a matching `asset(...)` line in `src/config/images.ts` (or an inline `ImageAsset`
+object in `gallery.ts`) with its real `src`, `width` and `height`.
+
 Use only photographs you own or are licensed to use.

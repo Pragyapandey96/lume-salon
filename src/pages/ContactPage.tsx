@@ -1,16 +1,20 @@
+import AppointmentSection from '@/components/contact/AppointmentSection'
+import ContactBooking from '@/components/contact/ContactBooking'
+import ContactDetails from '@/components/contact/ContactDetails'
+import ContactHero from '@/components/contact/ContactHero'
+import LocationSection from '@/components/contact/LocationSection'
 import PageTransition from '@/components/layout/PageTransition'
-import PageHeader from '@/components/ui/PageHeader'
-import PlaceholderNotice from '@/components/ui/PlaceholderNotice'
+import { siteConfig } from '@/config/site'
 
 export default function ContactPage() {
   return (
     <PageTransition>
-      <PageHeader
-        eyebrow="Reservations"
-        title="Contact"
-        description="Book an appointment or ask us anything — we are happy to help."
-      />
-      <PlaceholderNotice />
+      <title>{`Contact · ${siteConfig.name} ${siteConfig.tagline}`}</title>
+      <ContactHero />
+      <ContactDetails />
+      <AppointmentSection />
+      <LocationSection />
+      <ContactBooking />
     </PageTransition>
   )
 }
